@@ -5,19 +5,22 @@ from sys import stdin, argv
 import sys 
 from simplecrypt import encrypt, decrypt
 
-try:
-    script, option, filename = argv
-except Exception as error:
-    print("usage: python keepr.py OPTION FILENAME")
+def print_directions():    
+    print("usage: ./keepr.py OPTION FILENAME")
     print("options: ")
     print("\t -r read from filename")
     print("\t -w write to filename")
     print("\t -a append to filename on newline")
-    print("example: python keepr.py mysecret.txt -r")
+    print("example: ./keepr.py -r mysecret.asc")
     sys.exit()
     
+try:
+    script, option, filename = argv
+except Exception as error:
+    print_directions()
+    
 if option == '-w':
-    print("This will overwrite "+str(filename)+"! Press CTRL-C to abort.")
+    print("This will overwrite (or create) "+str(filename)+"! Press CTRL-C to abort.")
 
     # read the password from the user (without displaying it)
     password = getpass("password: ")
@@ -116,11 +119,4 @@ elif option == '-a':
     print("ciphertext saved to "+str(filename))
 
 else:    
-    print("usage: python keepr.py FILENAME OPTION")
-    print("options: ")
-    print("\t -r read from filename")
-    print("\t -w write to filename")
-    print("\t -a append to filename on newline")
-    print("example: python keepr.py mysecret.txt -r")
-    sys.exit()
-    
+    print_directions()

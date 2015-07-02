@@ -3,7 +3,7 @@ An encrypted file manager
 
 usage:
 
-	python keepr.py FILENAME.txt OPTION
+	./keepr.py OPTION FILENAME
 	
 Options:
 
@@ -13,5 +13,5 @@ Options:
 	
 Example:
 	
-	python keepr.py mysecret.txt -w
+	./keepr.py -w mysecret.asc
 	

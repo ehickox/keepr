@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from binascii import hexlify
 from getpass import getpass
 from sys import stdin, argv
@@ -5,9 +6,9 @@ import sys
 from simplecrypt import encrypt, decrypt
 
 try:
-    script, filename, option = argv
+    script, option, filename = argv
 except Exception as error:
-    print("usage: python keepr.py FILENAME OPTION")
+    print("usage: python keepr.py OPTION FILENAME")
     print("options: ")
     print("\t -r read from filename")
     print("\t -w write to filename")
